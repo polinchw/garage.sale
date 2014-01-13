@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="./WEB-INF/layouts/template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid columns="3">
+				<f:facet name="header">
+					<h2>Add Sale</h2>
+				</f:facet>
+				<h:outputText value="Sold To: " />
+				<h:selectOneMenu id="soldTo" value="#{saleEjb.selectedUser}"
+					required="true">
+					<f:selectItems value="#{userEjb.users}" var="u" itemValue="#{u.id}"
+						itemLabel="#{u.name}" />
+				</h:selectOneMenu>
+				<h:message for="soldTo" style="color: red" />
+				<h:outputText value="Amount $ " />
+				<h:inputText value="#{sale.amount}" title="amount" id="amount"
+					required="true" />
+				<h:message for="amount" style="color: red" />
+				<f:facet name="footer">
+					<h:panelGroup style="display:block; text-align:center">
+						<h:commandButton action="showSales.xhtml"
+							actionListener="#{saleEjb.makeSale}" value="Submit" />
+					</h:panelGroup>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
