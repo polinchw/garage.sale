@@ -91,6 +91,7 @@ float:left;
 {
 width:204px;
 height:13px;
+float:left;
 background-image:url(images/leftmenu_top.png);
 }
 #leftmenu_bottom
@@ -122,6 +123,7 @@ width:204px;
 color:#FFFFFF;
 padding-left:10px;
 padding-bottom:14px;
+float: left;
 }
 
 #leftmenu_main ul li
