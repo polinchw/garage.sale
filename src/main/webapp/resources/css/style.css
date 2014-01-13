@@ -167,7 +167,7 @@ color:#EED7D7;
 {
 display:block;
 float:left;
-width:689px;
+width:400px;
 height:auto;
 padding-left:10px;
 padding-top:15px;
@@ -180,7 +180,7 @@ padding-bottom:5px;
 {
 	background-image:url(images/main_top.png);
 	background-repeat:no-repeat;
-	width:689px;
+	width:400px;
 	height:23px;
 }
 
@@ -188,7 +188,7 @@ padding-bottom:5px;
 {
 background-image:url(images/main_back.png);
 background-repeat:repeat-y;
-width:659px;
+width:400px;
 padding-left:1px;
 padding-right:1px;
 }
