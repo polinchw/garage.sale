@@ -1,5 +1,6 @@
 package com.hall.garage.sale.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -17,7 +18,7 @@ import com.hall.garage.sale.model.Sale;
 import com.hall.garage.sale.model.User;
 
 /**
- * Session Bean implementation class SaleService
+ * Stateless Session EJB implementation class SaleService
  */
 @Stateless
 @LocalBean
@@ -60,6 +61,45 @@ public class SaleEjb {
 		item.setName(this.item.getName());
 		item.setDescription(this.item.getDescription());
 		em.persist(sale);
+	}
+	
+	public float getTotalSales() {
+		Query q = em.createNamedQuery("findAllSales");
+		@SuppressWarnings("unchecked")
+		List<Sale> sales = q.getResultList();
+		float total = 0.0f;
+		for(Sale s : sales) {
+			total = s.getAmount() + total;
+		}
+		return total;
+	}
+	
+	
+    /**
+     * Total up the sales per user.
+     * @return
+     */
+	public List<Sale> getTotalSalesByUser() {
+		List<Sale> totals = new ArrayList<Sale>();
+		List<User> users = userEjb.getUsers(); 
+		for(User u : users) {
+			logger.fine("User: "+u.getName());			
+			Query q = em.createNamedQuery("findSalesByUser");
+			q.setParameter("id", u.getId());
+		    List<Sale> sales = q.getResultList();
+		    float total = 0.0f;
+		    for(Sale s : sales) {
+		    	 //add up all this guys sales
+		    	 logger.fine("user: "+s.getUser().getName());
+		    	 logger.fine("amount: "+s.getAmount());
+		         total = s.getAmount() + total;
+		    }		    
+		    Sale totalSale = new Sale();		   
+		    totalSale.setUser(u);
+		    totalSale.setAmount(total);
+		    totals.add(totalSale);
+		}			
+		return totals;
 	}
 	
 	public List<Sale> getSales() {

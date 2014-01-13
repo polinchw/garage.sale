@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name="sale")
 @NamedQueries({
-	@NamedQuery(name="findAllSales",query="select s from Sale as s")	
+	@NamedQuery(name="findAllSales",query="select s from Sale as s"),
+	@NamedQuery(name="findSalesByUser",query="select s from Sale as s where s.user.id = :id")
 })
 @XmlRootElement(name="sale")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -41,19 +43,22 @@ public class Sale implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private static final long serialVersionUID = 1L;
+	
 	@OneToOne
 	@JoinColumn(name="user_fk")
-	private User user;		
+	private User user;
+	
 	@OneToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="item_fk",nullable=true,unique=false)
 	private Item item;
+	
 	@Column(nullable=false)
+	@NotNull
 	private float amount;
+	
 	@Column(name = "timeOfSale")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeOfSale;
-	
-    
 
 	public Date getTimeOfSale() {
 		return timeOfSale;

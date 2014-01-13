@@ -14,7 +14,7 @@ import javax.persistence.Query;
 import com.hall.garage.sale.model.User;
 
 /**
- * Session Bean implementation class UserEjb
+ * Stateless EJB Bean implementation class UserEjb
  */
 @Stateless
 @LocalBean
