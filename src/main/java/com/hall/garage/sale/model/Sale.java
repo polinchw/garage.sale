@@ -31,7 +31,7 @@ public class Sale implements Serializable {
 	@OneToOne
 	@JoinColumn(name="user_fk")
 	private User user;
-	@OneToOne
+	@OneToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="item_fk")
 	private Item item;
 	@Column(nullable=false)
