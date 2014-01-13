@@ -1,5 +1,6 @@
 package com.hall.garage.sale.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -11,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.hall.garage.sale.model.Item;
 import com.hall.garage.sale.model.Sale;
 import com.hall.garage.sale.model.User;
 
@@ -31,6 +33,9 @@ public class SaleEjb {
 	Sale sale;
 	
 	@Inject
+	Item item;
+	
+	@Inject
 	UserEjb userEjb;
 	
 	String selectedUser;
@@ -49,10 +54,11 @@ public class SaleEjb {
 		User user = this.userEjb.getUserById(Integer.parseInt(this.selectedUser));
 		sale.setUser(user);
 		sale.setAmount(this.sale.getAmount());
-//		Item item = new Item();
-//		sale.setItem(item);
-//		user.setName(this.sale.getUser().getName());
-//		item.setName(this.sale.getItem().getName());
+		sale.setTimeOfSale(new Date());
+		Item item = new Item();
+		sale.setItem(item);		
+		item.setName(this.item.getName());
+		item.setDescription(this.item.getDescription());
 		em.persist(sale);
 	}
 	

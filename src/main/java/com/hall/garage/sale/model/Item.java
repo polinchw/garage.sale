@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -31,8 +32,10 @@ public class Item implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@Column(length=10,unique=true)
+	@Size(min=1,max=30)
 	private String name;
 	@Column(length=100)
+	@Size(min=1,max=100)
 	private String description;
 	private float price;
 	private static final long serialVersionUID = 1L;
