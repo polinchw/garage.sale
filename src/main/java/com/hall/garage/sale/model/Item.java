@@ -33,7 +33,7 @@ public class Item implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(length=10,unique=true)
+	@Column(length=10,unique=false)
 	@Size(min=0,max=30)
 	private String name;
 	
