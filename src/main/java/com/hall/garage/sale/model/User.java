@@ -19,7 +19,12 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Entity implementation class for Entity: User
+ * This class is an example of an EJB Entity Bean.  It uses JPA to 
+ * map it's fields to columns in the database.  It's also is a CDI
+ * bean that can be injected into other objects.  It's also a JAXB object
+ * that can be used to map it's fields into XML or JSON elements.  It uses
+ * bean validation to enforce validation rules.  These rules are enforced
+ * when the user submits a form on a JSF Facelet page.
  *
  */
 @Entity

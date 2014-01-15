@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Entity implementation class for Entity: Item
+ * 
  *
  */
 @Entity
