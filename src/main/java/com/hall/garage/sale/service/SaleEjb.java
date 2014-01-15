@@ -65,10 +65,15 @@ public class SaleEjb {
 		sale.setUser(user);
 		sale.setAmount(this.sale.getAmount());
 		sale.setTimeOfSale(new Date());
-		Item item = new Item();
-		sale.setItem(item);		
-		item.setName(this.item.getName());
-		item.setDescription(this.item.getDescription());
+		if(this.item.getName() != null ||
+		   this.item.getDescription() != null) {
+			Item item = new Item();
+			//add the item to the sale
+			sale.setItem(item);		
+			item.setName(this.item.getName());
+			item.setDescription(this.item.getDescription());
+		}
+		//add everything to the database
 		em.persist(sale);
 	}
 	
