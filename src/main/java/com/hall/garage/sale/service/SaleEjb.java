@@ -18,7 +18,12 @@ import com.hall.garage.sale.model.Sale;
 import com.hall.garage.sale.model.User;
 
 /**
- * Stateless Session EJB implementation class SaleService
+ * This is a Stateless EJB Session Bean.  It's used to control database 
+ * transactions.  When one of it's public methods are called, by default, if 
+ * a database transaction is not already underway in the thread it will start
+ * one.  
+ * 
+ * It also shows how CDI beans are injected such as the sale and item properties.
  */
 @Stateless
 @LocalBean
@@ -30,6 +35,10 @@ public class SaleEjb {
 	@PersistenceContext(unitName="garage.sale")
 	private EntityManager em;
 	
+	/**
+	 * A CDI bean that is injected by the JavaEE container.  This sale object
+	 * is used by a Facelet page.  It has a request scope. 
+	 */
 	@Inject
 	Sale sale;
 	
