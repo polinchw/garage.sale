@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -75,6 +77,7 @@ public class SaleEjb {
 		}
 		//add everything to the database
 		em.persist(sale);
+		FacesContext.getCurrentInstance().addMessage("added", new FacesMessage("Sale "+sale.getId()+" added."));
 	}
 	
 	public float getTotalSales() {
