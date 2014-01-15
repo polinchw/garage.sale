@@ -9,6 +9,7 @@ JPA - Object Relational Mapping
 EJB - Controls database transactions
 JSF - Model View Controller 
 CDI - Wires objects together using dependency injection
+JAXB - XML to Object binding.
 JAX-WS - Soap Web Services
 JAX-RS - RestFul Web Services
 
