@@ -9,7 +9,7 @@ import com.hall.garage.sale.model.User;
 import com.hall.garage.sale.service.UserEjb;
 
 /**
- * A Soap Web Service.  
+ * This class is a JAX-WS Soap Web Service.  
  * 
  * @author polinchakb
  *
