@@ -8,9 +8,18 @@ import javax.jws.WebService;
 import com.hall.garage.sale.model.User;
 import com.hall.garage.sale.service.UserEjb;
 
+/**
+ * A Soap Web Service.  
+ * 
+ * @author polinchakb
+ *
+ */
 @WebService
 public class Garage {
 	
+	/**
+	 * An EJB that is injected by the container.
+	 */
 	@Inject
 	UserEjb userEjb;
 	
