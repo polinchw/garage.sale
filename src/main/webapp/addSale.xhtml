@@ -39,8 +39,8 @@
 					</h:panelGroup>
 				</f:facet>
 			</h:panelGrid>
-			 <h:outputText id="added" />
-			<h:message for="added" style="color: blue" /> <!-- Message for successful sale. -->
+			 <h:outputText id="added" binding="#{saleEjb.addedComponent}"/>
+            <h:message for="added"/>
 		</h:form>
 	</ui:define>
 </ui:composition>

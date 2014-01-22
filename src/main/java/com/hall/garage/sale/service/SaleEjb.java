@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -53,6 +54,16 @@ public class SaleEjb {
 	
 	String selectedUser;
 	
+	UIComponent addedComponent;
+	
+	public UIComponent getAddedComponent() {
+		return addedComponent;
+	}
+
+	public void setAddedComponent(UIComponent addedComponent) {
+		this.addedComponent = addedComponent;
+	}
+
 	public String getSelectedUser() {
 		return selectedUser;
 	}
@@ -78,7 +89,7 @@ public class SaleEjb {
 		}
 		//add everything to the database
 		em.persist(sale);
-		FacesContext.getCurrentInstance().addMessage("added", new FacesMessage("Sale "+sale.getId()+" added."));
+		FacesContext.getCurrentInstance().addMessage(this.getAddedComponent().getClientId(), new FacesMessage("Sale "+sale.getId()+" added."));
 	}
 	
 	public float getTotalSales() {

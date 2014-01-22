@@ -55,7 +55,7 @@ public class Sale implements Serializable {
 	@OneToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="item_fk",nullable=true,unique=false)
 	private Item item;
-	
+	 
 	@Column(nullable=false)
 	@NotNull
 	@DecimalMin(value="0.01")
