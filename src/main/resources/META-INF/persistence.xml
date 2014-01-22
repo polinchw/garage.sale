@@ -5,7 +5,7 @@
 	<persistence-unit name="garage.sale" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<!-- Maps to a connection pool in GlassFish <jta-data-source>jdbc/_garage.sale</jta-data-source> -->
-	    <jta-data-source>jdbc:/_garage.sale</jta-data-source> 
+	    <jta-data-source>java:jboss/datasources/MysqlDS</jta-data-source> 
 		<class>com.hall.garage.sale.model.Item</class>
 		<class>com.hall.garage.sale.model.Sale</class>
 		<class>com.hall.garage.sale.model.User</class>

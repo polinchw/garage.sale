@@ -5,7 +5,7 @@ import javax.annotation.sql.DataSourceDefinition;
 import javax.ejb.Singleton;
 import javax.sql.DataSource;
 
-@DataSourceDefinition(name = "jdbc:/_garage.sale",
+@DataSourceDefinition(name = "jdbc:/garagesale",
 minPoolSize = 0,
 initialPoolSize = 0,
 className = "com.mysql.jdbc.Driver",
@@ -19,7 +19,7 @@ properties = {"createDatabase=create"}
 @Singleton
 public class DataSourceEJB {
 	
-	@Resource(lookup="jdbc:/_garage.sale")
+	@Resource(lookup="jdbc:/garagesale")
 	private DataSource ds;
 
 }
