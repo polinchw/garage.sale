@@ -18,6 +18,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -54,6 +58,8 @@ public class Sale implements Serializable {
 	
 	@Column(nullable=false)
 	@NotNull
+	@DecimalMin(value="0.01")
+	@DecimalMax(value="1000.00")
 	private float amount;
 	
 	@Column(name = "timeOfSale")

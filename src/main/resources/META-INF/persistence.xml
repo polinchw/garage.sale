@@ -8,7 +8,7 @@
 	    <jta-data-source>java:jboss/datasources/MysqlDS</jta-data-source> 
 		<class>com.hall.garage.sale.model.Item</class>
 		<class>com.hall.garage.sale.model.Sale</class>
-		<class>com.hall.garage.sale.model.User</class>
+		<class>com.hall.garage.sale.model.User</class> 
 		<properties>
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
