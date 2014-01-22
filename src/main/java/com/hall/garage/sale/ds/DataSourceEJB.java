@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 minPoolSize = 0,
 initialPoolSize = 0,
 className = "com.mysql.jdbc.Driver",
+serverName="127.8.131.130",
+portNumber=3306,
 user = "adminCEfcLrc",
 password = "WBM9W3C5BJea",
 databaseName = "garagesale",
