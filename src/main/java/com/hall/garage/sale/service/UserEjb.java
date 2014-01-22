@@ -22,7 +22,7 @@ import com.hall.garage.sale.model.User;
 public class UserEjb {
 	
 	private Logger logger = Logger.getLogger(UserEjb.class.getName());
-
+	
 	@PersistenceContext(unitName="garage.sale")
 	private EntityManager em;
 	

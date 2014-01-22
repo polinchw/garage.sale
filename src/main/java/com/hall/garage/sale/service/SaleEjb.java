@@ -34,7 +34,8 @@ public class SaleEjb {
 	
 	private final static Logger logger = Logger.getLogger(SaleEjb.class.getName());
 	
-	@PersistenceContext(unitName="garage.sale")
+	
+    @PersistenceContext(unitName="garage.sale")
 	private EntityManager em;
 	
 	/**
