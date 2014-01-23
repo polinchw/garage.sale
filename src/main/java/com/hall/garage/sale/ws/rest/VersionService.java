@@ -18,6 +18,8 @@ public class VersionService {
 	@GET
 	@Produces("text/plain")
 	public String getVersion() throws Exception {
+		log.info(this.getClass().getPackage().getImplementationTitle());
+		log.info(this.getClass().getPackage().getImplementationVersion());
 		return this.getClass().getPackage().getImplementationVersion();
 	}
 
