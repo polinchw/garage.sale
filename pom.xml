@@ -104,6 +104,11 @@
 									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 								</manifest>
+								<manifestEntries>
+									<Implementation-Title>${project.name}</Implementation-Title>
+									<!-- buildNumber is produced at runtime by buildnumber-maven-plugin -->
+									<Implementation-Version>${project.version} ${buildNumber}</Implementation-Version>
+								</manifestEntries>
 							</archive>
 						</configuration>
 					</plugin>

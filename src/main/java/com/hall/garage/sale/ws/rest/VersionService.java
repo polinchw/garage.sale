@@ -15,12 +15,13 @@ public class VersionService {
 //	@Inject
 	Logger log = Logger.getLogger(VersionService.class.getName());
 	
+	
 	@GET
 	@Produces("text/plain")
 	public String getVersion() throws Exception {
-		log.fine(VersionService.class.getClass().getPackage().getImplementationTitle());
-		log.fine(VersionService.class.getClass().getPackage().getImplementationVersion());
-		return VersionService.class.getClass().getPackage().getImplementationVersion();
+		log.fine(VersionService.class.getClass().getPackage().getSpecificationVersion());
+		log.fine(VersionService.class.getClass().getPackage().getSpecificationTitle());
+		return VersionService.class.getClass().getPackage().getSpecificationVersion();
 	}
 
 }
