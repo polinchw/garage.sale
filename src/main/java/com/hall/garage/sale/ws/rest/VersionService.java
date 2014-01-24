@@ -19,9 +19,10 @@ public class VersionService {
 	@GET
 	@Produces("text/plain")
 	public String getVersion() throws Exception {
-		log.fine(VersionService.class.getClass().getPackage().getSpecificationVersion());
-		log.fine(VersionService.class.getClass().getPackage().getSpecificationTitle());
-		return VersionService.class.getClass().getPackage().getSpecificationVersion();
+		log.info(VersionService.class.getClass().getPackage().getSpecificationVersion());
+		log.info(VersionService.class.getClass().getPackage().getSpecificationTitle());
+		log.info(VersionService.class.getClass().getPackage().getImplementationVersion());
+		return VersionService.class.getClass().getPackage().getImplementationVersion();
 	}
 
 }
