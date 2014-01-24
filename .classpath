@@ -30,5 +30,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="target/garage.sale-0.0.1-SNAPSHOT.war"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
