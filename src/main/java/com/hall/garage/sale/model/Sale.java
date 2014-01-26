@@ -2,8 +2,10 @@ package com.hall.garage.sale.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,8 +22,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -42,6 +42,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Named
 @RequestScoped
 public class Sale implements Serializable {
+	
+//	@Inject
+//	Logger log;
 	   
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
