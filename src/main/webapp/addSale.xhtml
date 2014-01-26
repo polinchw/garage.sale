@@ -8,6 +8,7 @@
 	xmlns:rich="http://richfaces.org/rich">
 <ui:composition template="./WEB-INF/layouts/template.xhtml">
 	<ui:define name="content">
+	<rich:panel header="Richfaces sample validation and auto-completion">
 		<h:form>
 			<h:panelGrid columns="3">
 				<f:facet name="header">
@@ -26,9 +27,9 @@
 				<h:message for="amount" style="color: red" />
 
 				<h:outputText value="Item (optional)" />
-				<h:inputText value="#{item.name}" title="item name" id="item_name"/>
-			
+				<rich:autocomplete id="item_name" value="#{item.name}" minChars="1" autocompleteMethod="#{saleEjb.items}" />
 				<h:message for="item_name" style="color: red" />
+			
 
 				<h:outputText value="Item Description (optional)" />
 				<h:inputText value="#{item.description}" title="item description"
@@ -45,6 +46,7 @@
 			<h:outputText id="added" binding="#{saleEjb.addedComponent}" />
 			<h:message for="added" />
 		</h:form>
+		</rich:panel>
 	</ui:define>
 </ui:composition>
 </html>
