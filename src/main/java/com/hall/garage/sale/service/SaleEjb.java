@@ -52,10 +52,22 @@ public class SaleEjb {
 	@Inject
 	UserEjb userEjb;
 	
+	Date date = new Date();
+	
 	String selectedUser;
 	
 	UIComponent addedComponent;
 	
+	
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public UIComponent getAddedComponent() {
 		return addedComponent;
 	}

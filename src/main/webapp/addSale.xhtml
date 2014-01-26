@@ -1,50 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml"
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/layouts/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich">
-<ui:composition template="./WEB-INF/layouts/template.xhtml">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
 	<ui:define name="content">
-		<h:form>
-			<h:panelGrid columns="3">
-				<f:facet name="header">
-					<h2>Add Sale</h2>
-				</f:facet>
-				<h:outputText value="Sold To: " />
-				<h:selectOneMenu id="soldTo" value="#{saleEjb.selectedUser}"
-					required="true">
-					<f:selectItems value="#{userEjb.users}" var="u" itemValue="#{u.id}"
-						itemLabel="#{u.name}" />
-				</h:selectOneMenu>
-				<h:message for="soldTo" style="color: red" />
-				<h:outputText value="Amount $ " />
-				<h:inputText value="#{sale.amount}" title="amount" id="amount"
-					required="true" />
-				<h:message for="amount" style="color: red" />
+		<rich:panel header="Richfaces sample validation and auto-completion">
+			<h:form>
+				<h:panelGrid columns="3">
+					<f:facet name="header">
+						<h2>Add Sale</h2>
+					</f:facet>
+					<h:outputText value="Sold To: " />
+					<h:selectOneMenu id="soldTo" value="#{saleEjb.selectedUser}"
+						required="true">
+						<f:selectItems value="#{userEjb.users}" var="u"
+							itemValue="#{u.id}" itemLabel="#{u.name}" />
+					</h:selectOneMenu>
+					<h:message for="soldTo" style="color: red" />
+					<h:outputText value="Amount $ " />
+					<h:inputText value="#{sale.amount}" title="amount" id="amount"
+						required="true" />
+					<h:message for="amount" style="color: red" />
 
-				<h:outputText value="Item (optional)" />
-				<h:inputText value="#{item.name}" title="item name" id="item_name"/>
-			
-				<h:message for="item_name" style="color: red" />
+					<h:outputText value="Item (optional)" />
+					<rich:autocomplete id="item_name" value="#{item.name}" minChars="1"
+						autocompleteMethod="#{saleEjb.items}" />
+					<h:message for="item_name" style="color: red" />
 
-				<h:outputText value="Item Description (optional)" />
-				<h:inputText value="#{item.description}" title="item description"
-					id="item_description" />
-				<h:message for="item_description" style="color: red" />
 
-				<f:facet name="footer">
-					<h:panelGroup style="display:block; text-align:center">
-						<h:commandButton action="addSale.xhtml"
-							actionListener="#{saleEjb.makeSale}" value="Submit" />
-					</h:panelGroup>
-				</f:facet>
-			</h:panelGrid>
-			<h:outputText id="added" binding="#{saleEjb.addedComponent}" />
-			<h:message for="added" />
-		</h:form>
+					<h:outputText value="Item Description (optional)" />
+					<h:inputText value="#{item.description}" title="item description"
+						id="item_description" />
+					<h:message for="item_description" style="color: red" />
+
+					<f:facet name="footer">
+						<h:panelGroup style="display:block; text-align:center">
+							<h:commandButton action="addSale.xhtml"
+								actionListener="#{saleEjb.makeSale}" value="Submit" />
+						</h:panelGroup>
+					</f:facet>
+				</h:panelGrid>
+				<h:outputText id="added" binding="#{saleEjb.addedComponent}" />
+				<h:message for="added" />
+			</h:form>
+		</rich:panel>
 	</ui:define>
 </ui:composition>
-</html>
