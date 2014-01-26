@@ -135,6 +135,13 @@ public class SaleEjb {
 	    Query q = em.createNamedQuery("findAllSales");
 	    return q.getResultList();
 	}
+	
+	public List<String> getItems() {
+		List<String> items = new ArrayList<String>();
+		items.add("Java is");
+		items.add("awesome");
+		return items;
+	}
 
 
 }
