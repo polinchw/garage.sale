@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="./WEB-INF/layouts/template.xhtml">
+	<ui:define name="content">
+        <h:form>
+			<h:dataTable id="salesList" value="#{saleEjb.sales}" var="s" border="1">	
+			    <f:facet name="header">
+					<h2>Sales</h2>
+				</f:facet>		
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sold To" />
+					</f:facet>
+					<h:outputText value="#{s.user.name}" />
+				</h:column>		
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Amount" />
+					</f:facet>
+					<h:outputText value="#{s.amount}" />
+				</h:column>	
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Time of Sale" />
+					</f:facet>
+					<h:outputText value="#{s.timeOfSale}" />
+				</h:column>	
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Item" />
+					</f:facet>
+					<h:outputText value="#{s.item.name}" />
+				</h:column>			
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Item Description" />
+					</f:facet>
+					<h:outputText value="#{s.item.description}" />
+				</h:column>										
+			</h:dataTable>
+			<h:dataTable id="salesbyUser" value="#{saleEjb.totalSalesByUser}" var="s" border="0">	
+			    <f:facet name="header">
+					<h2>Sales by User</h2>
+				</f:facet>		
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="User" />
+					</f:facet>
+					<h:outputText value="#{s.user.name}" />
+				</h:column>		
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Amount" />
+					</f:facet>
+					<h:outputText value="#{s.amount}" />
+				</h:column>	
+			</h:dataTable>
+			<h2>Total Sales: <h:outputText value="#{saleEjb.totalSales}" /></h2>
+			
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
