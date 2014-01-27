@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="item")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Named
-@RequestScoped
+@RequestScoped 
 public class Item implements Serializable {
 	
 	@Id
