@@ -36,11 +36,4 @@
     <welcome-file-list>
         <welcome-file>addSale.jsf</welcome-file>
     </welcome-file-list>
-
-    <!-- To define a datasource we use the @Datasource annotation -->
-    <!--<data-source>-->
-    <!--<name>java:global/jdbc/applicationPetstoreDS</name>-->
-    <!--<class-name>org.apache.derby.jdbc.EmbeddedDriver</class-name>-->
-    <!--<url>jdbc:derby:memory:applicationPetstoreDB;create=true;user=app;password=app</url>-->
-    <!--</data-source>-->
 </web-app>
