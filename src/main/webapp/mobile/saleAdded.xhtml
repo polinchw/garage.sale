@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/layouts/mobile.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
+	<ui:define name="content">
+			<h:form>
+				<h1>Sale Added.</h1>
+				<h:link value="Add Another Sale" outcome="addSale.xhtml" />
+			</h:form>
+	</ui:define>
+</ui:composition>

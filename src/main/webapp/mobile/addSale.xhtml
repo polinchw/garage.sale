@@ -38,13 +38,11 @@
 
 					<f:facet name="footer">
 						<h:panelGroup style="display:block; text-align:center">
-							<h:commandButton action="addSale.xhtml"
+							<h:commandButton action="saleAdded.xhtml"
 								actionListener="#{saleEjb.makeSale}" value="Submit" />
 						</h:panelGroup>
 					</f:facet>
-				</h:panelGrid>
-				<h:outputText id="added" binding="#{saleEjb.addedComponent}" />
-				<h:message for="added" />
+				</h:panelGrid>				
 			</h:form>
 	</ui:define>
 </ui:composition>

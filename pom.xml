@@ -8,6 +8,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
+	<scm>
+		<connection>scm:git:https://github.com/polinchw/garage.sale.git</connection>
+		<developerConnection>scm:git:https://github.com/polinchw/garage.sale.git</developerConnection>
+		<url>https://github.com/polinchw/garage.sale.git</url>
+		<tag>HEAD</tag>
+	</scm>
+
 	<name>garage.sale</name>
 
 	<properties>
@@ -44,17 +51,19 @@
 			<groupId>org.richfaces.core</groupId>
 			<artifactId>richfaces-core-impl</artifactId>
 		</dependency>
-		<!-- The rewrite library allows us to do url rewriting - used here for rewriting mobile devices to mobile specific views -->
-        <dependency>
-            <groupId>org.ocpsoft.rewrite</groupId>
-            <artifactId>rewrite-servlet</artifactId>
-        </dependency>
+		<!-- The rewrite library allows us to do url rewriting - used here for 
+			rewriting mobile devices to mobile specific views -->
+		<dependency>
+			<groupId>org.ocpsoft.rewrite</groupId>
+			<artifactId>rewrite-servlet</artifactId>
+		</dependency>
 
-        <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
-        <dependency>
-            <groupId>org.ocpsoft.rewrite</groupId>
-            <artifactId>rewrite-integration-cdi</artifactId>
-        </dependency>
+		<!-- The cdi integration allows for CDI injection into the rewrite configuration 
+			class -->
+		<dependency>
+			<groupId>org.ocpsoft.rewrite</groupId>
+			<artifactId>rewrite-integration-cdi</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
