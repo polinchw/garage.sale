@@ -36,4 +36,6 @@
     <welcome-file-list>
         <welcome-file>addSale.jsf</welcome-file>
     </welcome-file-list>
+    
+    
 </web-app>
