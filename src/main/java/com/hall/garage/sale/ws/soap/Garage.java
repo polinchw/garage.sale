@@ -1,6 +1,6 @@
 package com.hall.garage.sale.ws.soap;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -20,7 +20,7 @@ public class Garage {
 	/**
 	 * An EJB that is injected by the container.
 	 */
-	@Inject
+	@EJB
 	UserEjb userEjb;
 	
 	@WebMethod
