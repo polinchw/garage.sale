@@ -2,10 +2,8 @@ package com.hall.garage.sale.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -61,8 +60,9 @@ public class Sale implements Serializable {
 	 
 	@Column(nullable=false)
 	@NotNull
-	@DecimalMin(value="0.01")
-	@DecimalMax(value="1000.00")
+	@DecimalMax(value="1000.00",message="Amount must be less than 1000.00")
+	@DecimalMin(value="0.01",message="Amount must be more than 0.01")
+	@Digits(integer=4, fraction=2)
 	private float amount;
 	
 	@Column(name = "timeOfSale")
