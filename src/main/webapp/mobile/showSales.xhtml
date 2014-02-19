@@ -6,9 +6,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:rich="http://richfaces.org/rich">
-<ui:composition template="./WEB-INF/layouts/mobile.xhtml">
+<ui:composition template="/WEB-INF/layouts/mobile.xhtml">
 	<ui:define name="content">
-        <h:form id="form">
+        <h:form id="salesForm">
 			<h:panelGrid columnClasses="acent">
 				<rich:dataScroller for="table" maxPages="5" />
 				<rich:dataTable value="#{saleEjb.sales}" var="s" id="table"
