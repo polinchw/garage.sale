@@ -8,32 +8,33 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:my="http://java.sun.com/jsf/composite/components">
 	<ui:define name="content">
-			<h:form>
+		<h:form>
+			<rich:panel>
+				<f:facet name="header">
+					<h2>Add Sale</h2>
+				</f:facet>
 				<h:panelGrid columns="3">
-					<f:facet name="header">
-						<h2>Add Sale</h2>
-					</f:facet>
-					<h:outputText value="Sold To: " />
+
+					<h:outputText value="Sold To " />
 					<h:selectOneMenu id="soldTo" value="#{saleEjb.selectedUser}"
 						required="true">
 						<f:selectItems value="#{userEjb.users}" var="u"
 							itemValue="#{u.id}" itemLabel="#{u.name}" />
 					</h:selectOneMenu>
 					<h:message for="soldTo" style="color: red" />
-					<h:outputText value="Amount $ " />
-					<h:inputText value="#{sale.amount}" title="amount" id="amount"
-						required="true" />
+					<h:outputText value="Amount" />
+					<rich:inplaceInput value="#{sale.amount}" id="amount" 
+						defaultLabel="enter the amount" />
 					<h:message for="amount" style="color: red" />
 
-					<h:outputText value="Item (optional)" />
-					<rich:autocomplete id="item_name" value="#{item.name}" minChars="1"
-						autocompleteMethod="#{saleEjb.items}" />
+					<h:outputText value="Item" />
+					<rich:inplaceInput id="item_name" value="#{item.name}" defaultLabel="item name" />
 					<h:message for="item_name" style="color: red" />
 
 
-					<h:outputText value="Item Description (optional)" />
-					<h:inputText value="#{item.description}" title="item description"
-						id="item_description" />
+					<h:outputText value="Item Description" />
+					<rich:inplaceInput value="#{item.description}" title="item description"
+						id="item_description" defaultLabel="item description"/>
 					<h:message for="item_description" style="color: red" />
 
 					<f:facet name="footer">
@@ -45,6 +46,7 @@
 				</h:panelGrid>
 				<h:outputText id="added" binding="#{saleEjb.addedComponent}" />
 				<h:message for="added" />
-			</h:form>
+			</rich:panel>
+		</h:form>
 	</ui:define>
 </ui:composition>

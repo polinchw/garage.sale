@@ -4,21 +4,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
-<ui:composition template="./WEB-INF/layouts/template.xhtml">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="/WEB-INF/layouts/template.xhtml">
 	<ui:define name="content">
 		<h:form>
-			<h:dataTable id="userList" value="#{userEjb.users}" var="u">
+			<rich:panel>
 				<f:facet name="header">
 					<h2>Users</h2>
 				</f:facet>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Name" />
-					</f:facet>
-					<h:outputText value="#{u.name}" />
-				</h:column>
-			</h:dataTable>
+				<h:panelGrid columnClasses="acent">
+					<rich:dataScroller for="userList" maxPages="5" />
+					<rich:dataTable id="userList" value="#{userEjb.users}" var="u">
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Name" />
+							</f:facet>
+							<h:outputText value="#{u.name}" />
+						</rich:column>
+					</rich:dataTable>
+					<rich:dataScroller for="userList" maxPages="5" />
+				</h:panelGrid>
+			</rich:panel>
 		</h:form>
 	</ui:define>
 </ui:composition>

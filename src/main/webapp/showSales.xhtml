@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:rich="http://richfaces.org/rich">
-<ui:composition template="./WEB-INF/layouts/template.xhtml">
+<ui:composition template="/WEB-INF/layouts/template.xhtml">
 	<ui:define name="content">
 		<h:form id="form">
 			<h:panelGrid columnClasses="acent">
@@ -56,24 +56,28 @@
 				<rich:dataScroller for="table" maxPages="5" />
 			</h:panelGrid>
 
-			<h:dataTable id="salesbyUser" value="#{saleEjb.totalSalesByUser}"
-				var="s" border="0">
-				<f:facet name="header">
-					<h2>Sales by User</h2>
-				</f:facet>
-				<h:column>
+			<h:panelGrid columnClasses="acent">
+				<rich:dataScroller for="table" maxPages="5" />
+				<rich:dataTable id="salesbyUser" value="#{saleEjb.totalSalesByUser}"
+					var="s" border="0">
 					<f:facet name="header">
-						<h:outputText value="User" />
+						<h2>Sales by User</h2>
 					</f:facet>
-					<h:outputText value="#{s.user.name}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Amount" />
-					</f:facet>
-					<h:outputText value="#{s.amount}" />
-				</h:column>
-			</h:dataTable>
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="User" />
+						</f:facet>
+						<h:outputText value="#{s.user.name}" />
+					</rich:column>
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="Amount" />
+						</f:facet>
+						<h:outputText value="#{s.amount}" />
+					</rich:column>
+				</rich:dataTable>
+				<rich:dataScroller for="table" maxPages="5" />
+			</h:panelGrid>
 			<h2>
 				Total Sales:
 				<h:outputText value="#{saleEjb.totalSales}" />

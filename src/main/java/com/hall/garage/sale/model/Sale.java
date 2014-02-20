@@ -61,7 +61,7 @@ public class Sale implements Serializable {
 	@Column(nullable=false)
 	@NotNull
 	@DecimalMax(value="1000.00",message="Amount must be less than 1000.00")
-	@DecimalMin(value="0.01",message="Amount must be more than 0.01")
+	@DecimalMin(value="1.00",message="Amount must greater than 1.00")
 	@Digits(integer=4, fraction=2)
 	private float amount;
 	

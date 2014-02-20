@@ -12,36 +12,40 @@
 		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
 </h:head>
-<h:body> 
+<h:body>
 	<div id="container">
 		<div id="inner">
-		 <h:form id="form">
-        <h:panelGrid columns="2" columnClasses="cols,cols" width="400">
-            <rich:panelMenu style="width:200px" itemMode="ajax" groupMode="ajax" groupExpandedLeftIcon="triangleUp"
-                groupCollapsedLeftIcon="triangleDown" topGroupExpandedRightIcon="chevronUp"
-                topGroupCollapsedRightIcon="chevronDown" itemLeftIcon="disc" itemChangeListener="#{panelMenuBean.updateCurrent}">
-                <rich:panelMenuGroup label="Menu">
-                    <rich:panelMenuItem name="Add_User" >
-                       <h:link value="Add User" outcome="addUser.xhtml" />
-                    </rich:panelMenuItem>
-                    <rich:panelMenuItem name="Show_User" >
-                       <h:link value="Show User" outcome="showUsers.xhtml" />
-                    </rich:panelMenuItem>
-                    <rich:panelMenuItem name="Add_Sale" >
-                       <h:link value="Add Sale" outcome="addSale.xhtml" />
-                    </rich:panelMenuItem>
-                    <rich:panelMenuItem name="Show_Sales" >
-                       <h:link value="Show Sales" outcome="showSales.xhtml" />
-                    </rich:panelMenuItem>
-                </rich:panelMenuGroup>                
-            </rich:panelMenu>
-            <a4j:outputPanel ajaxRendered="true">
-                <rich:panel rendered="#{not empty panelMenuBean.current}">
-                    <h:outputText value="#{panelMenuBean.current} selected" id="current" />
-                </rich:panel>
-            </a4j:outputPanel>
-        </h:panelGrid>
-    </h:form>			
+			<h:form id="form">
+				<h:panelGrid columns="2" columnClasses="cols,cols" width="400">
+					<rich:panelMenu style="width:200px" itemMode="ajax"
+						groupMode="ajax" groupExpandedLeftIcon="triangleUp"
+						groupCollapsedLeftIcon="triangleDown"
+						topGroupExpandedRightIcon="chevronUp"
+						topGroupCollapsedRightIcon="chevronDown" itemLeftIcon="disc"
+						itemChangeListener="#{panelMenuBean.updateCurrent}">
+						<rich:panelMenuGroup label="Menu">
+							<rich:panelMenuItem name="Add_User">
+								<h:link value="Add User" outcome="addUser.xhtml" />
+							</rich:panelMenuItem>
+							<rich:panelMenuItem name="Show_User">
+								<h:link value="Show User" outcome="showUsers.xhtml" />
+							</rich:panelMenuItem>
+							<rich:panelMenuItem name="Add_Sale">
+								<h:link value="Add Sale" outcome="addSale.xhtml" />
+							</rich:panelMenuItem>
+							<rich:panelMenuItem name="Show_Sales">
+								<h:link value="Show Sales" outcome="showSales.xhtml" />
+							</rich:panelMenuItem>
+						</rich:panelMenuGroup>
+					</rich:panelMenu>
+					<a4j:outputPanel ajaxRendered="true">
+						<rich:panel rendered="#{not empty panelMenuBean.current}">
+							<h:outputText value="#{panelMenuBean.current} selected"
+								id="current" />
+						</rich:panel>
+					</a4j:outputPanel>
+				</h:panelGrid>
+			</h:form>
 			<div id="content">
 				<ui:insert name="content">
                     [Mobile content will be inserted here]
