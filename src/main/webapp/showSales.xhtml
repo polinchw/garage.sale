@@ -12,7 +12,6 @@
 			<rich:panel style="width : 976px; height : 290px;">
 				<h:panelGrid columnClasses="acent"
 					style="width : 939px; height : 235px;">
-					<rich:dataScroller for="table" maxPages="5" />
 					<rich:dataTable value="#{saleEjb.sales}" var="s" id="table"
 						rows="10">
 						<f:facet name="header">
@@ -61,7 +60,6 @@
 			<rich:panel style="height : 231px; width : 978px;">
 				<h:panelGrid columnClasses="acent"
 					style="width : 483px; height : 205px;">
-					<rich:dataScroller for="table" maxPages="5" />
 					<rich:dataTable id="salesbyUser"
 						value="#{saleEjb.totalSalesByUser}" var="s" border="0">
 						<f:facet name="header">
