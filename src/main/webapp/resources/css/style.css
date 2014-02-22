@@ -268,3 +268,7 @@ html, body {
 text-align: center;
 }
 p {text-align: left;}
+
+table {
+	float: left;
+}
