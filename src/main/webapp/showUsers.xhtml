@@ -15,7 +15,7 @@
 				</f:facet>
 				<h:panelGrid columnClasses="acent">
 					<rich:dataScroller for="userList" maxPages="5" />
-					<rich:dataTable id="userList" value="#{userEjb.users}" var="u">
+					<rich:dataTable id="userList" value="#{userEjb.users}" var="u" rows="5">
 						<rich:column>
 							<f:facet name="header">
 								<h:outputText value="Name" />

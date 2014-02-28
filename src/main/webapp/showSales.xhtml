@@ -9,10 +9,10 @@
 <ui:composition template="/WEB-INF/layouts/template.xhtml">
 	<ui:define name="content">
 		<h:form id="form">
-			<rich:panel style="width : 976px; height : 290px;">
+			<rich:panel style="width : 978px; height : 320px;">
 				<h:panelGrid columnClasses="acent"
-					style="width : 939px; height : 235px;">
-					<rich:dataTable value="#{saleEjb.sales}" var="s" id="table"
+					style="width : 978x; height : 235px;">
+					<rich:dataTable value="#{saleEjb.sales}" var="s" id="salesTable"
 						rows="10">
 						<f:facet name="header">
 							<h2>Sales</h2>
@@ -54,14 +54,14 @@
 							<h:outputText value="#{s.item.description}" />
 						</rich:column>
 					</rich:dataTable>
-					<rich:dataScroller for="table" maxPages="5" />
+					<rich:dataScroller for="salesTable" maxPages="5" />
 				</h:panelGrid>
 			</rich:panel>
-			<rich:panel style="height : 231px; width : 978px;">
+			<rich:panel style="width : 978px; height : 259px;">
 				<h:panelGrid columnClasses="acent"
 					style="width : 483px; height : 205px;">
 					<rich:dataTable id="salesbyUser"
-						value="#{saleEjb.totalSalesByUser}" var="s" border="0">
+						value="#{saleEjb.totalSalesByUser}" var="s" border="0" rows="5" >
 						<f:facet name="header">
 							<h2>Sales by User</h2>
 						</f:facet>
@@ -78,15 +78,15 @@
 							<h:outputText value="#{s.amount}" />
 						</rich:column>
 					</rich:dataTable>
-					<rich:dataScroller for="table" maxPages="5" />
+					<rich:dataScroller for="salesbyUser" maxPages="5" />
 				</h:panelGrid>
 			</rich:panel>
-			<rich:panel style=" width : 978px; height : 45px;">
+			<rich:panel style="width : 978px; height : 80px;">
 				<h:panelGrid>
-					<h2>
+					<h1>
 						Total Sales:
 						<h:outputText value="#{saleEjb.totalSales}" />
-					</h2>
+					</h1>
 				</h:panelGrid>
 			</rich:panel>
 		</h:form>
