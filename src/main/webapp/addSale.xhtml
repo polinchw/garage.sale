@@ -15,25 +15,25 @@
 				</f:facet>
 				<h:panelGrid columns="3">
 
-					<h:outputText value="Sold To " />
+					<h:outputText styleClass="outputText" value="Sold To " />
 					<h:selectOneMenu id="soldTo" value="#{saleEjb.selectedUser}"
 						required="true">
 						<f:selectItems value="#{userEjb.users}" var="u"
 							itemValue="#{u.id}" itemLabel="#{u.name}" />
 					</h:selectOneMenu>
 					<h:message for="soldTo" style="color: red" />
-					<h:outputText value="Amount" />
-					<rich:inplaceInput value="#{sale.amount}" id="amount" 
-						defaultLabel="enter the amount" />
+					<h:outputText styleClass="outputText" value="Amount"  />
+					<rich:inplaceInput styleClass="inputText" value="#{sale.amount}" id="amount" 
+						defaultLabel="enter the amount" inputWidth="10"/>
 					<h:message for="amount" style="color: red" />
 
-					<h:outputText value="Item" />
-					<rich:inplaceInput id="item_name" value="#{item.name}" defaultLabel="item name" />
+					<h:outputText styleClass="outputText" value="Item" />
+					<rich:inplaceInput id="item_name" styleClass="inputText" value="#{item.name}" defaultLabel="item name" />
 					<h:message for="item_name" style="color: red" />
 
 
-					<h:outputText value="Item Description" />
-					<rich:inplaceInput value="#{item.description}" title="item description"
+					<h:outputText styleClass="outputText" value="Item Description" />
+					<rich:inplaceInput value="#{item.description}" styleClass="inputText" title="item description"
 						id="item_description" defaultLabel="item description"/>
 					<h:message for="item_description" style="color: red" />
 

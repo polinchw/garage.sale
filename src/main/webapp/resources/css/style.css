@@ -273,6 +273,12 @@ table {
 	float: left;
 }
 
-td {
-    font-size: 14pt;
+
+.outputText {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.inputText {
+	font-size: 10pt;
 }
