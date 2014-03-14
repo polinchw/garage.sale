@@ -49,6 +49,11 @@ public class User implements Serializable {
 	@Size(min=1,max=10)
 	private String name;   
 	
+	@Column(name="password",length=10)
+	@NotNull
+	@Size(min=1,max=10)
+	private String password;   
+	
 	private static final long serialVersionUID = 1L;
 
 	public String getName() {
@@ -65,5 +70,15 @@ public class User implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
    
 }

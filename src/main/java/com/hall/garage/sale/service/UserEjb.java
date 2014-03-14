@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.hall.garage.sale.model.Roles;
 import com.hall.garage.sale.model.User;
 
 /**
@@ -29,6 +30,9 @@ public class UserEjb {
 	@Inject 
 	User user;
 	
+	@Inject
+	RolesEjb rolesEjb;
+	
 	public void addUser(User user) {
 		em.persist(user);
 	}
@@ -37,6 +41,10 @@ public class UserEjb {
 		User user = new User();
 		user.setName(this.user.getName());
 		addUser(user);
+		Roles roles = new Roles();
+		roles.setName(this.user.getName());
+		roles.setRole("salesmen");
+		this.rolesEjb.addRoles(roles);
 	}
 	
 	@SuppressWarnings("unchecked")
