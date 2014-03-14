@@ -40,6 +40,7 @@ public class UserEjb {
 	public void addUser() {
 		User user = new User();
 		user.setName(this.user.getName());
+		user.setPassword(this.user.getPassword());
 		addUser(user);
 		Roles roles = new Roles();
 		roles.setName(this.user.getName());
