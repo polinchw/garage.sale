@@ -13,19 +13,7 @@
 		<properties>
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
-			<!--  
-			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://127.1.253.130:3306/garagesale" />
-			<property name="hibernate.connection.username" value="adminCEfcLrc" />
-			<property name="hibernate.connection.password" value="WBM9W3C5BJea" />
-
-             
-			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.1.253.130:3306/garagesale3" />
-			<property name="javax.persistence.jdbc.user" value="adminY1WSTdH" />
-			<property name="javax.persistence.jdbc.password" value="XgKI31ezy32Q" />-->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 		</properties>
 	</persistence-unit>
 </persistence>

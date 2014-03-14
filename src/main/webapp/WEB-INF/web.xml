@@ -37,5 +37,23 @@
         <welcome-file>addSale.jsf</welcome-file>
     </welcome-file-list>
     
-    
+    <security-constraint>
+       <web-resource-collection>
+          <web-resource-name>Everything</web-resource-name>
+          <description>Data Auth</description>
+          <url-pattern>/*</url-pattern>
+          <http-method>GET</http-method>
+          <http-method>POST</http-method>
+       </web-resource-collection>
+       <auth-constraint>
+          <role-name>salesmen</role-name>
+       </auth-constraint>
+    </security-constraint>
+    <login-config>
+      <auth-method>BASIC</auth-method>
+      <realm-name>mysqldomain</realm-name>
+    </login-config>
+    <security-role>
+       <role-name>salesmen</role-name>
+    </security-role>
 </web-app>

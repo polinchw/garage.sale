@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
      
-	<security-domain>jboss-web-policy</security-domain>
+	<security-domain>java:/jaas/mysqldomain</security-domain>
 	<valve>
 		<class-name>org.jboss.web.rewrite.RewriteValve</class-name>
 	</valve>
