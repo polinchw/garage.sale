@@ -1,5 +1,7 @@
 package com.hall.garage.sale.service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -13,6 +15,8 @@ import javax.persistence.Query;
 
 import com.hall.garage.sale.model.Roles;
 import com.hall.garage.sale.model.User;
+
+import org.jboss.security.Base64Utils;
 
 /**
  * Stateless EJB Bean implementation class UserEjb
@@ -40,7 +44,7 @@ public class UserEjb {
 	public void addUser() {
 		User user = new User();
 		user.setName(this.user.getName());
-		user.setPassword(this.user.getPassword());
+		user.setPassword(UserEjb.hashPassword(this.user.getPassword()));
 		addUser(user);
 		Roles roles = new Roles();
 		roles.setName(this.user.getName());
@@ -59,6 +63,18 @@ public class UserEjb {
 	public User getUserById(int id) {
 		User u = em.find(User.class, id);
 		return u;
+	}
+	
+	private static String hashPassword(String password) {
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		byte[] hash = md.digest(password.getBytes());
+		String passwordHash = Base64Utils.tob64(hash);
+		return passwordHash;
 	}
 
 }
