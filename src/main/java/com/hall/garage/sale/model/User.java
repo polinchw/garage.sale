@@ -49,9 +49,9 @@ public class User implements Serializable {
 	@Size(min=1,max=10)
 	private String name;   
 	
-	@Column(name="password",length=10)
+	@Column(name="password",length=100)
 	@NotNull
-	@Size(min=1,max=10)
+	@Size(min=1,max=100)
 	private String password;   
 	
 	private static final long serialVersionUID = 1L;

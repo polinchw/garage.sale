@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-    <!-- To let MyFaces auto start it needs some JSF annotation (@ManagedBean) instead of CDI @Named) -->
-    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.jsf</url-pattern>
-    </servlet-mapping>
-      <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Production</param-value>
-    </context-param>
+	<!-- To let MyFaces auto start it needs some JSF annotation (@ManagedBean) 
+		instead of CDI @Named) -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Production</param-value>
+	</context-param>
 
-    <context-param>
-        <param-name>org.richfaces.skin</param-name>
-        <param-value>classic</param-value>
-    </context-param>
+	<context-param>
+		<param-name>org.richfaces.skin</param-name>
+		<param-value>classic</param-value>
+	</context-param>
 
-    <context-param>
-        <param-name>org.richfaces.resourceOptimization.enabled</param-name>
-        <param-value>true</param-value>
-    </context-param>
+	<context-param>
+		<param-name>org.richfaces.resourceOptimization.enabled</param-name>
+		<param-value>true</param-value>
+	</context-param>
 
-    <!-- add a welcome-file-list entry to allow JSF pages to be sued as welcome files -->
-    <welcome-file-list>
-        <welcome-file>addSale.jsf</welcome-file>
-    </welcome-file-list>
-    
-    <security-constraint>
-       <web-resource-collection>
-          <web-resource-name>Everything</web-resource-name>
-          <description>Data Auth</description>
-          <url-pattern>/*</url-pattern>
-          <http-method>GET</http-method>
-          <http-method>POST</http-method>
-       </web-resource-collection>
-       <auth-constraint>
-          <role-name>salesmen</role-name>
-       </auth-constraint>
-    </security-constraint>
-    <login-config>
-      <auth-method>BASIC</auth-method>
-      <realm-name>mysqldomain</realm-name>
-    </login-config>
-    <security-role>
-       <role-name>salesmen</role-name>
-    </security-role>
+	<!-- add a welcome-file-list entry to allow JSF pages to be sued as welcome 
+		files -->
+	<welcome-file-list>
+		<welcome-file>secure/addSale.jsf</welcome-file>
+	</welcome-file-list>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Everything</web-resource-name>
+			<description>Data Auth</description>
+			<url-pattern>/secure/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>salesmen</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>mysqldomain</realm-name>
+		<form-login-config>
+			<form-login-page>/login.jsf</form-login-page>
+			<form-error-page>/loginError.xhtml</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role>
+		<role-name>salesmen</role-name>
+	</security-role>
 </web-app>

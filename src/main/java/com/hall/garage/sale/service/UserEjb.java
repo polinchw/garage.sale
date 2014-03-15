@@ -44,7 +44,7 @@ public class UserEjb {
 	public void addUser() {
 		User user = new User();
 		user.setName(this.user.getName());
-		user.setPassword(UserEjb.hashPassword(this.user.getPassword()));
+		user.setPassword(this.user.getPassword());
 		addUser(user);
 		Roles roles = new Roles();
 		roles.setName(this.user.getName());
@@ -72,7 +72,7 @@ public class UserEjb {
 		} catch (NoSuchAlgorithmException e) {
 			throw new RuntimeException(e.getMessage());
 		}
-		byte[] hash = md.digest(password.getBytes());
+		byte[] hash = md.digest(password.trim().getBytes());
 		String passwordHash = Base64Utils.tob64(hash);
 		return passwordHash;
 	}

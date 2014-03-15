@@ -486,7 +486,7 @@
                             <module-option name="principalsQuery" value="select password from user where name=?"/>
                             <module-option name="rolesQuery" value="select role,'Roles' from roles where name=?"/>
                             <module-option name="hashAlgorithm" value="MD5"/>
-                            <module-option name="hashEncoding" value="BASE64"/>
+                            <module-option name="hashEncoding" value="base64"/>
                             <module-option name="hashStorePassword" value="true"/>
                         </login-module>
                     </authentication>
