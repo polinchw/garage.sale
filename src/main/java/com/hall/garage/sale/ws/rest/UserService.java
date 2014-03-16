@@ -2,12 +2,17 @@ package com.hall.garage.sale.ws.rest;
 
 import java.util.List;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+
+import org.jboss.security.annotation.SecurityDomain;
+import org.jboss.ws.api.annotation.WebContext;
 
 import com.hall.garage.sale.model.User;
 import com.hall.garage.sale.service.UserEjb;
@@ -20,6 +25,10 @@ import com.hall.garage.sale.service.UserEjb;
  */
 @Path("user")
 @RequestScoped
+@WebContext(authMethod="BASIC")
+@DeclareRoles({"salesmen"})
+@RolesAllowed({"salesmen"})
+@SecurityDomain(value="mysqldomain")
 public class UserService {
 	
 	@Inject

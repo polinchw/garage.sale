@@ -1,10 +1,10 @@
 package com.hall.garage.sale.service;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -13,10 +13,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.jboss.ejb3.annotation.SecurityDomain;
+
+
 import com.hall.garage.sale.model.Roles;
 import com.hall.garage.sale.model.User;
 
-import org.jboss.security.Base64Utils;
 
 /**
  * Stateless EJB Bean implementation class UserEjb
@@ -24,6 +26,9 @@ import org.jboss.security.Base64Utils;
 @Stateless
 @LocalBean
 @Named
+//@SecurityDomain(value="mysqldomain")
+//@DeclareRoles({"salesmen"})
+//@RolesAllowed({"salesmen"})
 public class UserEjb {
 	
 	private Logger logger = Logger.getLogger(UserEjb.class.getName());
@@ -41,10 +46,11 @@ public class UserEjb {
 		em.persist(user);
 	}
 	
+	
 	public void addUser() {
 		User user = new User();
 		user.setName(this.user.getName());
-		user.setPassword(this.user.getPassword());
+		user.setPassword(UserEjb.hashPassword(this.user.getPassword()));
 		addUser(user);
 		Roles roles = new Roles();
 		roles.setName(this.user.getName());
@@ -53,6 +59,7 @@ public class UserEjb {
 	}
 	
 	@SuppressWarnings("unchecked")
+	@RolesAllowed({"salesmen"})
 	public List<User> getUsers() {
 		Query q = em.createNamedQuery("findAllUsers");
 		List<User> list = q.getResultList();
@@ -66,15 +73,7 @@ public class UserEjb {
 	}
 	
 	private static String hashPassword(String password) {
-		MessageDigest md;
-		try {
-			md = MessageDigest.getInstance("MD5");
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e.getMessage());
-		}
-		byte[] hash = md.digest(password.trim().getBytes());
-		String passwordHash = Base64Utils.tob64(hash);
-		return passwordHash;
+		return org.jboss.crypto.CryptoUtil.createPasswordHash("MD5", "BASE64", null, null, password);
 	}
 
 }
