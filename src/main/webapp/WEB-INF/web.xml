@@ -39,7 +39,7 @@
 	<!-- add a welcome-file-list entry to allow JSF pages to be sued as welcome 
 		files -->
 	<welcome-file-list>
-		<welcome-file>secure/addSale.jsf</welcome-file>
+		<welcome-file>signup.jsf</welcome-file>
 	</welcome-file-list>
 
 	<security-constraint>
