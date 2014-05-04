@@ -8,19 +8,21 @@
 	xmlns:rich="http://richfaces.org/rich">
 <ui:composition template="/WEB-INF/layouts/template.xhtml">
 
-	<div id="leftmenu" />
+	<ui:define name="left" />
 
 	<ui:define name="content">
-
 		<form action="j_security_check" method="post">
-                <h:outputLabel value="Username" />
-			    <input type="text" name="j_username" size="25"/>
-			    <h:outputLabel value="Password" />
-				<input type="password" size="25" name="j_password"/>
-				<input type="submit" value="Submit"/> 
-				<input type="reset" value="Reset"/>
+			<h:outputLabel for="j_username">Username:</h:outputLabel>
+			<h:inputText id="j_username" size="20" />
+            <br/>
+			<h:outputLabel for="j_password">Password:</h:outputLabel>
+			<h:inputSecret id="j_password" size="20" />
+            <br/>
+			<input type="submit" value="Login" />
 		</form>
-
+		<h:form>
+			<h:link value="Sign Up" outcome="signup.xhtml" />
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

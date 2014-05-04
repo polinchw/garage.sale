@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet name="css/style.css" />
@@ -15,17 +15,25 @@
 			<h1>
 				Garage<span class="off">Sale</span>
 			</h1>
-		</div>		
-		<div id="leftmenu">
-			<div id="leftmenu_main">
-				<ul>
-					<li><h:link value="Add User" outcome="addUser.xhtml" /></li>
-					<li><h:link value="Show Users" outcome="showUsers.xhtml" /></li>
-					<li><h:link value="Add Sale" outcome="addSale.xhtml" /></li>
-					<li><h:link value="Show Sales" outcome="showSales.xhtml" /></li>
-				</ul>
-			</div>
 		</div>
+		<ui:insert name="left">
+			<h:form>
+			    <h4>
+			      <h:commandLink value="Logout" action="#{userEjb.logout}" outcome="login.xhtml" />
+			    </h4>
+				
+			</h:form>
+			<div id="leftmenu">
+				<div id="leftmenu_main">
+					<ul>
+						<li><h:link value="Add User" outcome="addUser.xhtml" /></li>
+						<li><h:link value="Show Users" outcome="showUsers.xhtml" /></li>
+						<li><h:link value="Add Sale" outcome="addSale.xhtml" /></li>
+						<li><h:link value="Show Sales" outcome="showSales.xhtml" /></li>
+					</ul>
+				</div>
+			</div>
+		</ui:insert>
 		<div id="content">
 			<div id="content_main">
 				<ui:insert name="content" />

@@ -1,20 +1,18 @@
 package com.hall.garage.sale.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import org.jboss.ejb3.annotation.SecurityDomain;
-
 
 import com.hall.garage.sale.model.Roles;
 import com.hall.garage.sale.model.User;
@@ -53,7 +51,7 @@ public class UserEjb {
 		user.setPassword(UserEjb.hashPassword(this.user.getPassword()));
 		addUser(user);
 		Roles roles = new Roles();
-		roles.setName(this.user.getName());
+		roles.setName(user.getName());
 		roles.setRole("salesmen");
 		this.rolesEjb.addRoles(roles);
 	}
@@ -74,6 +72,16 @@ public class UserEjb {
 	
 	private static String hashPassword(String password) {
 		return org.jboss.crypto.CryptoUtil.createPasswordHash("MD5", "BASE64", null, null, password);
+	}
+	
+	public void logout(){
+	      FacesContext.getCurrentInstance().getExternalContext().invalidateSession();	
+	      try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/secure/showSales.jsf");
+		} catch (IOException e) {
+			logger.warning(e.getMessage());		
+			throw new RuntimeException(e.getMessage());
+		}
 	}
 
 }
