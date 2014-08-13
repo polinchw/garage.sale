@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="/WEB-INF/layouts/mobile.xhtml">
+
+	<ui:define name="content"> 
+		<h:form>
+			<h:panelGrid columns="3">
+				<f:facet name="header">
+					<h2>Add User</h2>
+				</f:facet>
+				<h:outputText value="Name :" />
+				<h:inputText value="#{user.name}" title="name" id="name" />
+				<h:message for="name" style="color: red" />
+				<f:facet name="footer">
+					<h:panelGroup style="display:block; text-align:center">
+						<h:commandButton action="showUsers.xhtml"
+							actionListener="#{userEjb.addUser}" value="Submit" />
+					</h:panelGroup>
+				</f:facet>
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
