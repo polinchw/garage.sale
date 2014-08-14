@@ -68,6 +68,6 @@ public class RewriteConfigurationProvider extends HttpConfigurationProvider {
                         return uAgentInfo.detectTierIphone() || uAgentInfo.detectTierTablet();
                     }
                 }))
-                .perform(Forward.to("/mobile/"));
+                .perform(Forward.to("/secure/mobile/addSale.jsf"));
     }
 }

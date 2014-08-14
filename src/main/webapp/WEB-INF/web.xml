@@ -66,6 +66,18 @@
 			<role-name>salesmen</role-name>
 		</auth-constraint>
 	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Rest Security</web-resource-name>
+			<description>Data Auth</description>
+			<url-pattern>/soap/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>salesmen</role-name>
+		</auth-constraint>
+	</security-constraint>
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<realm-name>mysqldomain</realm-name>
