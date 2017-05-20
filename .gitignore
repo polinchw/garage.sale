@@ -4,3 +4,6 @@ target
 !.settings/.jsdtscope
 .project
 .classpath
+/.idea/
+.idea/
+garage.sale.iml

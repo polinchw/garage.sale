@@ -48,7 +48,7 @@ public class UserEjb {
 	public void addUser() {
 		User user = new User();
 		user.setName(this.user.getName());
-		user.setPassword(UserEjb.hashPassword(this.user.getPassword()));
+		user.setPassword(this.user.getPassword());
 		addUser(user);
 		Roles roles = new Roles();
 		roles.setName(user.getName());
@@ -69,11 +69,7 @@ public class UserEjb {
 		User u = em.find(User.class, id);
 		return u;
 	}
-	
-	private static String hashPassword(String password) {
-		return org.jboss.crypto.CryptoUtil.createPasswordHash("MD5", "BASE64", null, null, password);
-	}
-	
+
 	public void logout(){
 	      FacesContext.getCurrentInstance().getExternalContext().invalidateSession();	
 	      try {
