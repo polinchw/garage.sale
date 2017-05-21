@@ -27,15 +27,13 @@ use database garagesale;
 -- Table structure for table `hibernate_sequence`
 --
 
-CREATE TABLE IF NOT EXISTS `hibernate_sequence` (
-  `next_val` bigint(20) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `SEQUENCE` (
+  `SEQ_NAME` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `hibernate_sequence`
---
 
-INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+
+INSERT INTO `SEQUENCE` (`SEQ_NAME`) VALUES
 (3);
 
 -- --------------------------------------------------------
@@ -96,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `sale` (
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(10) NOT NULL,
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),

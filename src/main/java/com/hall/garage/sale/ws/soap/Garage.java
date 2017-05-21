@@ -3,6 +3,7 @@ package com.hall.garage.sale.ws.soap;
 import javax.ejb.EJB;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import com.hall.garage.sale.model.User;
@@ -24,10 +25,12 @@ public class Garage {
 	UserEjb userEjb;
 	
 	@WebMethod
-	public void addUser(@WebParam(name="name") String name) throws Exception {
+	public String addUser(@WebParam(name="name") String name, @WebParam(name = "password") String password) throws Exception {
 		User user = new User();
 		user.setName(name);
+		user.setPassword(password);
 		userEjb.addUser(user);
+		return user.getId().toString();
 	}
 	
 
