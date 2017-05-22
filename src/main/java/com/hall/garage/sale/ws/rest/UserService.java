@@ -23,8 +23,6 @@ import com.hall.garage.sale.service.UserEjb;
  */
 @Path("user")
 @RequestScoped
-@DeclareRoles({"salesmen"})
-@RolesAllowed({"salesmen"})
 public class UserService {
 	
 	@Inject

@@ -57,7 +57,7 @@ public class UserEjb {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@RolesAllowed({"salesmen"})
+//	@RolesAllowed({"salesmen"})
 	public List<User> getUsers() {
 		Query q = em.createNamedQuery("findAllUsers");
 		List<User> list = q.getResultList();
